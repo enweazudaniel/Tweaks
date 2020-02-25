@@ -88,3 +88,24 @@ setprop persist.radio.add_power_save 1
 fstrim /data;
 fstrim /cache; 
 fstrim /system;
+
+# Auto-generate log directory;
+mkdir -p /storage/emulated/0/logs
+
+# Script log file location;
+LOG_FILE=/storage/emulated/0/logs
+
+export TZ=$(getprop persist.sys.timezone);
+echo $(date) > /storage/emulated/0/logs/schedutil.log
+if [ $? -eq 0 ]
+then
+  echo "Successfully applied Enjoy The Tweaks!" >> /storage/emulated/0/logs/schedutil.log
+  exit 0
+else
+  echo "Failed...please share logs with me" >> /storage/emulated/0/logs/schedutil.log
+  exit 1
+fi
+  
+# Wait..
+# Done!
+#

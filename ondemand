@@ -102,3 +102,24 @@ setprop persist.radio.add_power_save 1
 fstrim /data;
 fstrim /cache; 
 fstrim /system;
+
+# Auto-generate;
+mkdir -p /storage/emulated/0/logs
+
+# Script log file location;
+LOG_FILE=/storage/emulated/0/logs
+
+export TZ=$(getprop persist.sys.timezone);
+echo $(date) > /storage/emulated/0/logs/ondemand.log
+if [ $? -eq 0 ]
+then
+  echo "Enjoy!" >> /storage/emulated/0/logs/ondemand.log
+  exit 0
+else
+  echo "reasons failed" >> /storage/emulated/0/logs/ondemand.log
+  exit 1
+fi
+  
+# Wait..
+# Done!
+#
