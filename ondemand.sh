@@ -106,8 +106,6 @@ fstrim /system;
 # Auto-generate log directory;
 mkdir -p /storage/emulated/0/logs
 
-# Script log file location;
-LOG_FILE=/storage/emulated/0/logs
 
 export TZ=$(getprop persist.sys.timezone);
 echo $(date) > /storage/emulated/0/logs/ondemand.log
